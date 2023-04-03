@@ -1,17 +1,27 @@
 package group6.bookstore.BookDetails;
-
 import jakarta.persistence.*;
-
 @Entity
-@Table
+@Table(name = "author")
 public class Author {
     @Id
-    @SequenceGenerator(name = "author_sequence", sequenceName = "author_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "author_sequence")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "firstName")
     private String firstName;
+
+    @Column(name = "lastName")
     private String lastName;
+
+    @Column(name = "biography")
     private String biography;
+
+    @Column(name = "publisher")
     private String publisher;
+
+    // add a default no-argument constructor
+    public Author() {
+    }
 
     public Author(String firstName, String lastName, String biography, String publisher) {
         this.firstName = firstName;

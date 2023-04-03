@@ -1,14 +1,7 @@
 package group6.bookstore.BookDetails;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.CrudRepository;
 
-import java.util.Optional;
-
-@Repository
-public interface AuthorRepository extends JpaRepository<Author, Long> {
-
-    @Query("SELECT s FROM Author s WHERE s.firstName = ?1")
-    Optional<Author> findAuthorByfirstName(String firstName);
+public interface AuthorRepository extends CrudRepository<Author, Long> {
+    Book findByFirstName(String firstName);
 }

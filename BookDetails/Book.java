@@ -1,145 +1,137 @@
 package group6.bookstore.BookDetails;
-
 import jakarta.persistence.*;
-
 @Entity
-@Table
+@Table(name = "books")
 public class Book {
-        @Id
-        @SequenceGenerator(name = "book_sequence", sequenceName = "book_sequence", allocationSize = 1)
-        @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "book_sequence")
-        private Long Id;
-        private Long ISBN;
-        private String bookName;
-        private String bookDescription;
-        private Double price;
-        private String author;
-        private String genre;
-        private String publisher;
-        private Integer yearPublished;
-        private Long copiesSold;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-        public Book() {
-        }
+    @Column(name = "ISBN")
+    private Long ISBN;
 
-        public Book(Long Id, Long ISBN, String bookName, String bookDescription, Double price, String author, String genre, String publisher, Integer yearPublished, Long copiesSold) {
-                this.Id = Id;
-                this.ISBN = ISBN;
-                this.bookName = bookName;
-                this.bookDescription = bookDescription;
-                this.price = price;
-                this.author = author;
-                this.genre = genre;
-                this.publisher = publisher;
-                this.yearPublished = yearPublished;
-                this.copiesSold = copiesSold;
-        }
+    @Column(name = "bookName")
+    private String bookName;
 
-        public Book(Long ISBN, String bookName, String bookDescription, Double price, String author, String genre, String publisher, Integer yearPublished, Long copiesSold) {
-                this.ISBN = ISBN;
-                this.bookName = bookName;
-                this.bookDescription = bookDescription;
-                this.price = price;
-                this.author = author;
-                this.genre = genre;
-                this.publisher = publisher;
-                this.yearPublished = yearPublished;
-                this.copiesSold = copiesSold;
-        }
+    @Column(name = "bookDescription")
+    private String bookDescription;
 
+    @Column(name = "price")
+    private Double price;
 
-        public Long getId() {
-                return Id;
-        }
+    @Column(name = "author")
+    private String author;
 
-        public void setId(Long Id) {
-                this.Id = Id;
-        }
+    @Column(name = "genre")
+    private String genre;
 
-        public String getBookName() {
-                return bookName;
-        }
+    @Column(name = "publisher")
+    private String publisher;
 
-        public void setBookName(String bookName) {
-                this.bookName = bookName;
-        }
+    @Column(name = "yearPublished")
+    private Integer yearPublished;
 
-        public String getBookDescription() {
-                return bookDescription;
-        }
+    @Column(name = "copiesSold")
+    private Long copiesSold;
 
-        public void setBookDescription(String bookDescription) {
-                this.bookDescription = bookDescription;
-        }
+    public Book() {
+    }
 
-        public Double getPrice() {
-                return price;
-        }
+    public Book(Long ISBN, String bookName, String bookDescription, Double price, String author, String genre, String publisher, Integer yearPublished, Long copiesSold) {
+        this.ISBN = ISBN;
+        this.bookName = bookName;
+        this.bookDescription = bookDescription;
+        this.price = price;
+        this.author = author;
+        this.genre = genre;
+        this.publisher = publisher;
+        this.yearPublished = yearPublished;
+        this.copiesSold = copiesSold;
+    }
 
-        public void setPrice(Double price) {
-                this.price = price;
-        }
+    public String getBookName() {
+        return bookName;
+    }
 
-        public String getAuthor() {
-                return author;
-        }
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
 
-        public void setAuthor(String author) {
-                this.author = author;
-        }
+    public String getBookDescription() {
+        return bookDescription;
+    }
 
-        public String getGenre() {
-                return genre;
-        }
+    public void setBookDescription(String bookDescription) {
+        this.bookDescription = bookDescription;
+    }
 
-        public void setGenre(String genre) {
-                this.genre = genre;
-        }
+    public Double getPrice() {
+        return price;
+    }
 
-        public String getPublisher() {
-                return publisher;
-        }
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 
-        public void setPublisher(String publisher) {
-                this.publisher = publisher;
-        }
+    public String getAuthor() {
+        return author;
+    }
 
-        public Integer getYearPublished() {
-                return yearPublished;
-        }
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
-        public void setYearPublished(Integer yearPublished) {
-                this.yearPublished = yearPublished;
-        }
+    public String getGenre() {
+        return genre;
+    }
 
-        public Long getCopiesSold() {
-                return copiesSold;
-        }
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
 
-        public void setCopiesSold(Long copiesSold) {
-                this.copiesSold = copiesSold;
-        }
+    public String getPublisher() {
+        return publisher;
+    }
 
-        public Long getISBN() {
-                return ISBN;
-        }
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
 
-        public void setISBN(Long ISBN) {
-                this.ISBN = ISBN;
-        }
+    public Integer getYearPublished() {
+        return yearPublished;
+    }
 
-        @Override
-        public String toString() {
-                return "books{" +
-                        "Id=" + Id +
-                        ", bookName='" + bookName + '\'' +
-                        ", bookDescription='" + bookDescription + '\'' +
-                        ", price=" + price +
-                        ", author='" + author + '\'' +
-                        ", genre='" + genre + '\'' +
-                        ", publisher='" + publisher + '\'' +
-                        ", yearPublished=" + yearPublished +
-                        ", copiesSold=" + copiesSold +
-                        '}';
-        }
+    public void setYearPublished(Integer yearPublished) {
+        this.yearPublished = yearPublished;
+    }
+
+    public Long getCopiesSold() {
+        return copiesSold;
+    }
+
+    public void setCopiesSold(Long copiesSold) {
+        this.copiesSold = copiesSold;
+    }
+
+    public Long getISBN() {
+        return ISBN;
+    }
+
+    public void setISBN(Long ISBN) {
+        this.ISBN = ISBN;
+    }
+
+    @Override
+    public String toString() {
+        return "books{" +
+                ", bookName='" + bookName + '\'' +
+                ", bookDescription='" + bookDescription + '\'' +
+                ", price=" + price +
+                ", author='" + author + '\'' +
+                ", genre='" + genre + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", yearPublished=" + yearPublished +
+                ", copiesSold=" + copiesSold +
+                '}';
+    }
 }
